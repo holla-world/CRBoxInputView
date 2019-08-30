@@ -9,7 +9,16 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@interface CRBoxTextView : UITextField
+@interface CRBoxTextView : UIControl <UITextInput, UITextInputTraits>
+
+//@interface CRBoxTextView : UITextField
+
+@property(nullable, nonatomic,copy)   NSString               *text;
+@property(nullable, nonatomic,weak)   id<UITextFieldDelegate> delegate;
+@property (nullable, readwrite, strong) UIView *inputAccessoryView;
+
+@property(nonatomic) UIKeyboardType keyboardType;
+@property(null_unspecified,nonatomic,copy) UITextContentType textContentType;
 
 @end
 

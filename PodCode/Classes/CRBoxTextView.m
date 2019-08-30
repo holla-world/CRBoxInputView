@@ -9,12 +9,17 @@
 
 @implementation CRBoxTextView
 
-/**
- * /禁止可被粘贴复制
- */
-- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+///**
+// * /禁止可被粘贴复制
+// */
+//- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
+//{
+//    return NO;
+//}
+
+- (BOOL)canBecomeFirstResponder
 {
-    return NO;
+    return YES;
 }
 
 @end
