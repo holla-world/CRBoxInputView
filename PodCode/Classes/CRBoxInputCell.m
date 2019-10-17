@@ -16,7 +16,7 @@
 }
 
 @property (strong, nonatomic) UILabel *valueLabel;
-@property (strong, nonatomic) CABasicAnimation *opacityAnimation;
+@property (strong, nonatomic) CAKeyframeAnimation *opacityAnimation;
 @property (strong, nonatomic) UIView *customSecurityView;
 
 @property (strong, nonatomic) CRLineView *lineView;
@@ -151,13 +151,14 @@
 }
 
 #pragma mark - Setter & Getter
-- (CABasicAnimation *)opacityAnimation
+- (CAKeyframeAnimation *)opacityAnimation
 {
     if (!_opacityAnimation) {
-        _opacityAnimation = [CABasicAnimation animationWithKeyPath:@"opacity"];
-        _opacityAnimation.fromValue = @(1.0);
-        _opacityAnimation.toValue = @(0.0);
-        _opacityAnimation.duration = 0.9;
+		_opacityAnimation = [CAKeyframeAnimation animationWithKeyPath:@"opacity"];
+		_opacityAnimation.duration = 1.2;
+		_opacityAnimation.values = @[@(1.0), @(1.0), @(0), @(0)];
+		_opacityAnimation.keyTimes = @[@(0), @(0.5), @(0.51), @(1)];
+
         _opacityAnimation.repeatCount = HUGE_VALF;
         _opacityAnimation.removedOnCompletion = YES;
         _opacityAnimation.fillMode = kCAFillModeForwards;
